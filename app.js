@@ -29,9 +29,6 @@ app.post('/favoriteMovie', function(req, res){
   var yeardata = req.body.year;
   var imdbdata = req.body.imdb;
 
-/*Create a variable & capture the data entered to insert into the db
-   var dbData= { title: titledata, year: yeardata, imdb: imdbdata};
-   db.collection('movies').insertOne(dbData, function(err, res){*/
 //insert the retrieved body of the /favoriteMovie to the movies db.
  db.collection('movies').insert(req.body, function(err, res){
     if(err) throw err;
@@ -41,4 +38,3 @@ app.post('/favoriteMovie', function(req, res){
     res.send("Movie: " +  titledata  + " made in " + yeardata + " with imdb No.:" + imdbdata + " added to record");
   });
 });
-//Line 35 is edited in place of the old one that's on line 34
